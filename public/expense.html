@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finmate | Expenses</title>
+
+  <!-- ✅ Use same CSS file as Home -->
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+
+  <!-- ✅ EXACT same navbar structure as home.html -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <div class="logo">Finmate</div>
+    </div>
+
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="subscriptions.html">Subscriptions</a>
+        <a href="expense.html" class="active">Expenses</a>
+        <a href="invest.html">Investments</a>
+      </div>
+
+      <div class="user-avatar" title="Account">👤</div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- ✅ Header section matches home style -->
+    <header class="hero">
+      <div>
+        <h1>Expense Tracker</h1>
+        <p class="muted">Add and manage your daily expenses.</p>
+      </div>
+    </header>
+
+    <!-- ✅ Two panels side-by-side -->
+    <section class="grid2">
+      <!-- LEFT: Add Expense Form -->
+      <div class="panel">
+        <div class="panelTitle">Add Expense</div>
+
+        <form id="expenseForm" class="form">
+          <label class="field">
+            <span class="muted">Title</span>
+            <input class="input" id="title" type="text" placeholder="e.g., Groceries" required />
+          </label>
+
+          <label class="field">
+            <span class="muted">Amount</span>
+            <input class="input" id="amount" type="number" step="0.01" min="0.01" placeholder="e.g., 55.20" required />
+          </label>
+
+          <label class="field">
+            <span class="muted">Category</span>
+            <select class="select" id="category" required>
+              <option value="">Select category</option>
+              <option>Food</option>
+              <option>Transport</option>
+              <option>Housing</option>
+              <option>Entertainment</option>
+              <option>Subscriptions</option>
+              <option>Misc</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span class="muted">Date</span>
+            <input class="input" id="date" type="date" required />
+          </label>
+
+          <button class="btn" type="submit">+ Add Expense</button>
+
+          <div id="formMsg" class="muted" style="margin-top:10px;"></div>
+        </form>
+      </div>
+
+      <!-- RIGHT: Expense List -->
+      <div class="panel">
+        <div class="panelTitle">Recent Expenses</div>
+
+        <div class="tableWrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+
+            <tbody id="expenseTbody"></tbody>
+          </table>
+        </div>
+
+        <div id="listMsg" class="muted" style="margin-top:10px;"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./js/expense.js"></script>
+</body>
+</html>

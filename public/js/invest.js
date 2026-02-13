@@ -12,14 +12,11 @@ function showError(msg) {
 }
 
 async function loadData() {
-  // NOTE: This requires a server (Express static) to fetch JSON.
-  // If you open the HTML directly (file://), fetch may be blocked.
-  const res = await fetch("investments-data.json");
+  const res = await fetch("/api/invest"); 
+  if (!res.ok) throw new Error("Failed to fetch data");
   const data = await res.json();
-
   watchlist = data.watchlist.map(w => ({ ...w, prev: w.price }));
   portfolio = data.portfolio;
-
   renderAll();
 }
 

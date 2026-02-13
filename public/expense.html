@@ -1,108 +1,146 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Finmate | Expenses</title>
-
-  <!-- ✅ Use same CSS file as Home -->
-  <link rel="stylesheet" href="./css/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finmate | Expenses</title>
+    <link rel="stylesheet" href="./css/style.css" />
 </head>
+
 <body>
-
-  <!-- ✅ EXACT same navbar structure as home.html -->
-  <nav class="navbar">
-    <div class="nav-left">
-      <div class="logo">Finmate</div>
-    </div>
-
-    <div class="nav-right">
-      <div class="nav-links">
-        <a href="home.html">Home</a>
-        <a href="subscriptions.html">Subscriptions</a>
-        <a href="expense.html" class="active">Expenses</a>
-        <a href="invest.html">Investments</a>
-      </div>
-
-      <div class="user-avatar" title="Account">👤</div>
-    </div>
-  </nav>
-
-  <main class="container">
-    <!-- ✅ Header section matches home style -->
-    <header class="hero">
-      <div>
-        <h1>Expense Tracker</h1>
-        <p class="muted">Add and manage your daily expenses.</p>
-      </div>
-    </header>
-
-    <!-- ✅ Two panels side-by-side -->
-    <section class="grid2">
-      <!-- LEFT: Add Expense Form -->
-      <div class="panel">
-        <div class="panelTitle">Add Expense</div>
-
-        <form id="expenseForm" class="form">
-          <label class="field">
-            <span class="muted">Title</span>
-            <input class="input" id="title" type="text" placeholder="e.g., Groceries" required />
-          </label>
-
-          <label class="field">
-            <span class="muted">Amount</span>
-            <input class="input" id="amount" type="number" step="0.01" min="0.01" placeholder="e.g., 55.20" required />
-          </label>
-
-          <label class="field">
-            <span class="muted">Category</span>
-            <select class="select" id="category" required>
-              <option value="">Select category</option>
-              <option>Food</option>
-              <option>Transport</option>
-              <option>Housing</option>
-              <option>Entertainment</option>
-              <option>Subscriptions</option>
-              <option>Misc</option>
-            </select>
-          </label>
-
-          <label class="field">
-            <span class="muted">Date</span>
-            <input class="input" id="date" type="date" required />
-          </label>
-
-          <button class="btn" type="submit">+ Add Expense</button>
-
-          <div id="formMsg" class="muted" style="margin-top:10px;"></div>
-        </form>
-      </div>
-
-      <!-- RIGHT: Expense List -->
-      <div class="panel">
-        <div class="panelTitle">Recent Expenses</div>
-
-        <div class="tableWrap">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Item</th>
-                <th>Category</th>
-                <th>Amount</th>
-                <th>Date</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-
-            <tbody id="expenseTbody"></tbody>
-          </table>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="./assets/finmate-logo-Photoroom.png" alt="Finmate logo" class="logo-icon" />
+            <span>Finmate</span>
         </div>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="home.html">Home</a>
+                <a href="expense.html" class="active">Expenses</a>
+                <a href="invest.html">Investments</a>
+            </div>
 
-        <div id="listMsg" class="muted" style="margin-top:10px;"></div>
-      </div>
-    </section>
-  </main>
+            <div class="user-avatar" title="Account">👤</div>
+        </div>
+    </nav>
 
-  <script src="./js/expense.js"></script>
+    <main class="container">
+        <!-- Header section matches home style -->
+        <header class="hero">
+            <div>
+                <h1 id="welcomeTitle">Welcome back 👋</h1>
+                <p class="muted" id="welcomeQuote">“Small expenses sink great ships — track them before they track you.”
+                </p>
+            </div>
+        </header>
+        <!--Summary Cards (Analytics)-->
+        <section class="cards cards-3">
+            <div class="card">
+                <div class="label">Total Income</div>
+                <div class="value" id="totalBudget">$—</div>
+                <div class="hint muted">
+                    <span class="muted">Set budget:</span>
+                    <input id="budgetInput" class="budgetInput" type="number" min="0" step="1"
+                        placeholder="e.g., 1000" />
+                    <button id="saveBudgetBtn" class="btn btn-secondary" type="button">Save</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="label">Total Spent</div>
+                <div class="value" id="totalSpent">$—</div>
+                <div class="hint muted">Sum of all expenses</div>
+            </div>
+
+            <div class="card">
+                <div class="label">Remaining</div>
+                <div class="value" id="remainingBudget">$—</div>
+                <div class="hint muted">Budget - Spent</div>
+            </div>
+        </section>
+
+        <!--Charts Panel-->
+        <section class="grid2">
+            <!-- Row 1 Left: Add Expense -->
+            <div class="panel">
+                <div class="panelTitle">Add Expense</div>
+
+                <form id="expenseForm" class="form">
+                    <label class="field">
+                        <span class="muted">Title</span>
+                        <input class="input" id="title" type="text" placeholder="e.g., Groceries" required />
+                    </label>
+
+                    <label class="field">
+                        <span class="muted">Amount</span>
+                        <input class="input" id="amount" type="number" step="0.01" min="0.01" placeholder="e.g., 55.20"
+                            required />
+                    </label>
+
+                    <label class="field">
+                        <span class="muted">Category</span>
+                        <select class="select" id="category" required>
+                            <option value="">Select category</option>
+                            <option>Food</option>
+                            <option>Transport</option>
+                            <option>Housing</option>
+                            <option>Entertainment</option>
+                            <option>Subscriptions</option>
+                            <option>Misc</option>
+                        </select>
+                    </label>
+
+                    <label class="field">
+                        <span class="muted">Date</span>
+                        <input class="input" id="date" type="date" required />
+                    </label>
+
+                    <button class="btn" type="submit">+ Add Expense</button>
+                    <div id="formMsg" class="muted" style="margin-top:10px;"></div>
+                </form>
+            </div>
+
+            <!-- Row 1 Right: Recent Expenses -->
+            <div class="panel">
+                <div class="panelTitle">Recent Expenses</div>
+
+                <div class="tableWrap">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Category</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="expenseTbody"></tbody>
+                    </table>
+                </div>
+
+                <div id="listMsg" class="muted" style="margin-top:10px;"></div>
+            </div>
+
+            <!-- Row 2 Left: Pie Chart UNDER Add Expense -->
+            <div class="panel panel-chart">
+                <div class="panelTitle">Spending by Category</div>
+                <!-- Smaller canvas -->
+                <canvas id="categoryPie" width="280" height="180"></canvas>
+                <div class="muted" id="pieLegend" style="margin-top:10px;"></div>
+            </div>
+
+            <!-- Row 2 Right: empty placeholder (optional) -->
+            <div class="panel panel-chart">
+                <div class="panelTitle">Summary</div>
+                <div class="muted">You are spending against your budget. Track your spending to stay within limits and be happy!</div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="./js/expense.js"></script>
 </body>
+
 </html>

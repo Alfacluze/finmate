@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js"
   },
   "keywords": [],
   "author": "",
@@ -12,5 +14,16 @@
   "type": "commonjs",
   "dependencies": {
     "express": "^5.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alfacluze/finmate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Alfacluze/finmate/issues"
+  },
+  "homepage": "https://github.com/Alfacluze/finmate#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.11"
   }
 }

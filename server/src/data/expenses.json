@@ -1,0 +1,44 @@
+[
+  {
+    "id": "e_1770957509962",
+    "title": "TTC",
+    "amount": 3.3,
+    "category": "Transport",
+    "date": "2026-02-12"
+  },
+  {
+    "id": "e_1770959487789",
+    "title": "restraurant",
+    "amount": 55.7,
+    "category": "Food",
+    "date": "2026-02-10"
+  },
+  {
+    "id": "e_1770959817875",
+    "title": "monthly rent",
+    "amount": 750,
+    "category": "Housing",
+    "date": "2026-02-12"
+  },
+  {
+    "id": "e_1770959833742",
+    "title": "yt",
+    "amount": 6.56,
+    "category": "Subscriptions",
+    "date": "2026-02-03"
+  },
+  {
+    "id": "e_1770959892986",
+    "title": "donation",
+    "amount": 35,
+    "category": "Misc",
+    "date": "2026-02-12"
+  },
+  {
+    "id": "e_1771024169050",
+    "title": "ttc",
+    "amount": 3.3,
+    "category": "Transport",
+    "date": "2026-02-12"
+  }
+]

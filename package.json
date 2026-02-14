@@ -2,7 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/server.js",
@@ -15,15 +15,15 @@
   "dependencies": {
     "express": "^5.2.1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Alfacluze/finmate.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Alfacluze/finmate/issues"
-  },
-  "homepage": "https://github.com/Alfacluze/finmate#readme",
   "devDependencies": {
     "nodemon": "^3.1.11"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MohammedRedwan/finmate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MohammedRedwan/finmate/issues"
+  },
+  "homepage": "https://github.com/MohammedRedwan/finmate#readme"
 }

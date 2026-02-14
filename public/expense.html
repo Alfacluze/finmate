@@ -6,75 +6,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Finmate | Expenses</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="icon" type="image/png" href="./assets/finmate-logo-Photoroom.png">
 </head>
 
-<body>
+<body class="page-expenses">
     <nav class="navbar">
-        <div class="logo">
-            <img src="./assets/finmate-logo-Photoroom.png" alt="Finmate logo" class="logo-icon" />
-            <span>Finmate</span>
+        <div class="nav-left">
+            <div class="logo">
+                <img src="./assets/finmate-logo-Photoroom.png" alt="Finmate logo" class="logo-icon" />
+                <span>Finmate</span>
+            </div>
         </div>
+
         <div class="nav-right">
             <div class="nav-links">
-                <a href="home.html">Home</a>
+                <a href="home.html" >Home</a>
                 <a href="expense.html" class="active">Expenses</a>
                 <a href="invest.html">Investments</a>
             </div>
-
             <div class="profileWrap">
-  <button class="user-avatar" id="profileBtn" type="button" title="Account">👤</button>
+                <button class="user-avatar" id="profileBtn" type="button" title="Account">👤</button>
 
-  <div class="profileMenu" id="profileMenu" aria-hidden="true">
-    <!-- Signed OUT view -->
-    <div class="pmSignedOut" id="pmSignedOut">
-      <div class="pmHeader">
-        <div class="pmHello">Welcome</div>
-        <div class="pmMeta">Sign in to access your dashboard.</div>
-      </div>
+                <div class="profileMenu" id="profileMenu" aria-hidden="true">
+                    <!-- Signed OUT view -->
+                    <div class="pmSignedOut" id="pmSignedOut">
+                        <div class="pmHeader">
+                            <div class="pmHello">Welcome</div>
+                            <div class="pmMeta">Sign in to access your dashboard.</div>
+                        </div>
 
-      <div class="pmAuthBtns">
-        <button class="btn pmAuthPrimary" id="btnSignIn" type="button">Sign in</button>
-        <button class="btn btn-secondary pmAuthSecondary" id="btnCreate" type="button">Create account</button>
-      </div>
+                        <div class="pmAuthBtns">
+                            <button class="btn pmAuthPrimary" id="btnSignIn" type="button">Sign in</button>
+                            <button class="btn btn-secondary pmAuthSecondary" id="btnCreate" type="button">Create
+                                account</button>
+                        </div>
 
-      <div class="pmLinks">
-        <button class="pmLink" type="button"><span class="pmLeft">⚙️</span><span>Settings</span><span class="pmRight">›</span></button>
-        <button class="pmLink" type="button"><span class="pmLeft">❓</span><span>Help &amp; Support</span><span class="pmRight">›</span></button>
-      </div>
-    </div>
+                        <div class="pmLinks">
+                            <button class="pmLink" type="button"><span
+                                    class="pmLeft">⚙️</span><span>Settings</span><span class="pmRight">›</span></button>
+                            <button class="pmLink" type="button"><span class="pmLeft">❓</span><span>Help &amp;
+                                    Support</span><span class="pmRight">›</span></button>
+                        </div>
+                    </div>
 
-    <!-- Signed IN view -->
-    <div class="pmSignedIn" id="pmSignedIn" style="display:none;">
-      <div class="pmHeader">
-        <div class="pmHello" id="pmHello">Hi, User</div>
-        <div class="pmMeta" id="pmMeta">Last login: —</div>
-      </div>
+                    <!-- Signed IN view -->
+                    <div class="pmSignedIn" id="pmSignedIn" style="display:none;">
+                        <div class="pmHeader">
+                            <div class="pmHello" id="pmHello">Hi, User</div>
+                            <div class="pmMeta" id="pmMeta">Last login: —</div>
+                        </div>
 
-      <div class="pmActions">
-        <button class="pmCircle" type="button"><span class="pmIcon">👥</span><span class="pmLabel">New account</span></button>
-        <button class="pmCircle" type="button"><span class="pmIcon">👤</span><span class="pmLabel">Profile</span></button>
-        <button class="pmCircle" type="button"><span class="pmIcon">⚙️</span><span class="pmLabel">Settings</span></button>
-      </div>
+                        <div class="pmActions">
+                            <button class="pmCircle" type="button"><span class="pmIcon">👥</span><span
+                                    class="pmLabel">New account</span></button>
+                            <button class="pmCircle" type="button"><span class="pmIcon">👤</span><span
+                                    class="pmLabel">Profile</span></button>
+                            <button class="pmCircle" type="button"><span class="pmIcon">⚙️</span><span
+                                    class="pmLabel">Settings</span></button>
+                        </div>
 
-      <div class="pmLinks">
-        <button class="pmLink" type="button"><span class="pmLeft">🎁</span><span>Refer a friend</span><span class="pmRight">›</span></button>
-        <button class="pmLink" type="button"><span class="pmLeft">❓</span><span>Help &amp; Support</span><span class="pmRight">›</span></button>
-      </div>
+                        <div class="pmLinks">
+                            <button class="pmLink" type="button"><span class="pmLeft">🎁</span><span>Refer a
+                                    friend</span><span class="pmRight">›</span></button>
+                            <button class="pmLink" type="button"><span class="pmLeft">❓</span><span>Help &amp;
+                                    Support</span><span class="pmRight">›</span></button>
+                        </div>
 
-      <button class="pmLogout" id="pmLogout" type="button">Log out</button>
-    </div>
-  </div>
-</div>
+                        <button class="pmLogout" id="pmLogout" type="button">Log out</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
+
 
     <main class="container">
         <!-- Header section matches home style -->
         <header class="hero">
             <div>
-                <h1 id="welcomeTitle">Welcome back 👋</h1>
-                <p class="muted" id="welcomeQuote">“Small expenses sink great ships — track them before they track you.”
-                </p>
+                <h1 id="welcomeTitle">💳 Expense Manager</h1>
+                <p class="muted">Track, edit and control your spending.</p>
             </div>
         </header>
         <!--Summary Cards (Analytics)-->
@@ -111,17 +122,6 @@
 
                 <form id="expenseForm" class="form">
                     <label class="field">
-                        <span class="muted">Title</span>
-                        <input class="input" id="title" type="text" placeholder="e.g., Groceries" required />
-                    </label>
-
-                    <label class="field">
-                        <span class="muted">Amount</span>
-                        <input class="input" id="amount" type="number" step="0.01" min="0.01" placeholder="e.g., 55.20"
-                            required />
-                    </label>
-
-                    <label class="field">
                         <span class="muted">Category</span>
                         <select class="select" id="category" required>
                             <option value="">Select category</option>
@@ -133,6 +133,18 @@
                             <option>Misc</option>
                         </select>
                     </label>
+                    <label class="field">
+                        <span class="muted">Title</span>
+                        <input class="input" id="title" type="text" placeholder="e.g., Groceries" required />
+                    </label>
+
+                    <label class="field">
+                        <span class="muted">Amount</span>
+                        <input class="input" id="amount" type="number" step="0.01" min="0.01" placeholder="e.g., 55.20"
+                            required />
+                    </label>
+
+
 
                     <label class="field">
                         <span class="muted">Date</span>
@@ -177,7 +189,8 @@
             <!-- Row 2 Right: empty placeholder (optional) -->
             <div class="panel panel-chart">
                 <div class="panelTitle">Summary</div>
-                <div class="muted">You are spending against your budget. Track your spending to stay within limits and be happy!</div>
+                <div class="muted">You are spending against your budget. Track your spending to stay within limits and
+                    be happy!</div>
             </div>
         </section>
 
@@ -185,7 +198,6 @@
 
     <script src="./js/expense.js"></script>
     <script src="./js/profileMenu.js"></script>
-
 </body>
 
 </html>

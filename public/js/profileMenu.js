@@ -1,4 +1,4 @@
-//profileMenu
+// profileMenu
 (function () {
   const btn = document.getElementById("profileBtn");
   const menu = document.getElementById("profileMenu");
@@ -15,8 +15,10 @@
   const btnCreate = document.getElementById("btnCreate");
   const btnLogout = document.getElementById("pmLogout");
 
+  const USER_KEY = "finmate_user";
+
+
   function getETString() {
-    // Formats date/time in America/New_York (handles EST/EDT automatically)
     return new Intl.DateTimeFormat("en-US", {
       timeZone: "America/New_York",
       year: "numeric",
@@ -28,34 +30,35 @@
       timeZoneName: "short",
     }).format(new Date());
   }
+function notifyUserChanged() {
+  window.dispatchEvent(new Event("finmate:userChanged"));
+}
 
   function getUser() {
     try {
-      return JSON.parse(localStorage.getItem("finmate_user"));
+      return JSON.parse(localStorage.getItem(USER_KEY));
     } catch {
       return null;
     }
   }
 
   function setUser(userObj) {
-    localStorage.setItem("finmate_user", JSON.stringify(userObj));
+    localStorage.setItem(USER_KEY, JSON.stringify(userObj));
   }
 
   function clearUser() {
-    localStorage.removeItem("finmate_user");
+    localStorage.removeItem(USER_KEY);
   }
 
   function renderMenu() {
     const user = getUser();
 
     if (!user) {
-      // Signed OUT
       signedOutView.style.display = "block";
       signedInView.style.display = "none";
       return;
     }
 
-    // Signed IN
     signedOutView.style.display = "none";
     signedInView.style.display = "block";
 
@@ -93,10 +96,10 @@
   // Prevent clicks inside from closing
   menu.addEventListener("click", (e) => e.stopPropagation());
 
-  // Fake sign in / create account
+  // Fake sign in / create account (for now)
   function fakeSignIn(mode) {
     const username =
-      prompt(mode === "create" ? "Create a username:" : "Enter username:", "Areeb") || "";
+      prompt(mode === "create" ? "Create a username:" : "Enter username:") || "";
     const clean = username.trim();
     if (!clean) return;
 
@@ -106,6 +109,8 @@
     });
 
     renderMenu();
+    notifyUserChanged();
+    emitUserChanged(); // ✅ tell pages to refresh greeting
   }
 
   if (btnSignIn) btnSignIn.addEventListener("click", () => fakeSignIn("signin"));
@@ -116,8 +121,10 @@
       clearUser();
       renderMenu();
       closeMenu();
+      notifyUserChanged();
+
     });
 
-  // Initial render (if user already "signed in" from earlier)
+  // Initial render
   renderMenu();
 })();

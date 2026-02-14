@@ -1,11 +1,14 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Finmate • Investments</title>
   <link rel="stylesheet" href="./css/style.css" />
+  <link rel="icon" type="image/png" href="./assets/finmate-logo-Photoroom.png">
 </head>
+
 <body>
   <!-- navbar -->
   <nav class="navbar">
@@ -17,53 +20,60 @@
       <div class="nav-links">
         <a href="./home.html">Home</a>
         <a href="./expense.html">Expenses</a>
-        <a href="./invest.html" class="active">Investments</a>
+        <a href="./invest.html " class="active">Investments</a>
       </div>
-      <!-- <button class="btn btn-secondary btn-sm" id="refreshBtn" type="button" style="margin-left: 10px;">↻ Refresh</button> -->      
+      <!-- <button class="btn btn-secondary btn-sm" id="refreshBtn" type="button" style="margin-left: 10px;">↻ Refresh</button> -->
       <div class="profileWrap">
-  <button class="user-avatar" id="profileBtn" type="button" title="Account">👤</button>
+        <button class="user-avatar" id="profileBtn" type="button" title="Account">👤</button>
 
-  <div class="profileMenu" id="profileMenu" aria-hidden="true">
-    <!-- Signed OUT view -->
-    <div class="pmSignedOut" id="pmSignedOut">
-      <div class="pmHeader">
-        <div class="pmHello">Welcome</div>
-        <div class="pmMeta">Sign in to access your dashboard.</div>
+        <div class="profileMenu" id="profileMenu" aria-hidden="true">
+          <!-- Signed OUT view -->
+          <div class="pmSignedOut" id="pmSignedOut">
+            <div class="pmHeader">
+              <div class="pmHello">Welcome</div>
+              <div class="pmMeta">Sign in to access your dashboard.</div>
+            </div>
+
+            <div class="pmAuthBtns">
+              <button class="btn pmAuthPrimary" id="btnSignIn" type="button">Sign in</button>
+              <button class="btn btn-secondary pmAuthSecondary" id="btnCreate" type="button">Create account</button>
+            </div>
+
+            <div class="pmLinks">
+              <button class="pmLink" type="button"><span class="pmLeft">⚙️</span><span>Settings</span><span
+                  class="pmRight">›</span></button>
+              <button class="pmLink" type="button"><span class="pmLeft">❓</span><span>Help &amp; Support</span><span
+                  class="pmRight">›</span></button>
+            </div>
+          </div>
+
+          <!-- Signed IN view -->
+          <div class="pmSignedIn" id="pmSignedIn" style="display:none;">
+            <div class="pmHeader">
+              <div class="pmHello" id="pmHello">Hi, User</div>
+              <div class="pmMeta" id="pmMeta">Last login: —</div>
+            </div>
+
+            <div class="pmActions">
+              <button class="pmCircle" type="button"><span class="pmIcon">👥</span><span class="pmLabel">New
+                  account</span></button>
+              <button class="pmCircle" type="button"><span class="pmIcon">👤</span><span
+                  class="pmLabel">Profile</span></button>
+              <button class="pmCircle" type="button"><span class="pmIcon">⚙️</span><span
+                  class="pmLabel">Settings</span></button>
+            </div>
+
+            <div class="pmLinks">
+              <button class="pmLink" type="button"><span class="pmLeft">🎁</span><span>Refer a friend</span><span
+                  class="pmRight">›</span></button>
+              <button class="pmLink" type="button"><span class="pmLeft">❓</span><span>Help &amp; Support</span><span
+                  class="pmRight">›</span></button>
+            </div>
+
+            <button class="pmLogout" id="pmLogout" type="button">Log out</button>
+          </div>
+        </div>
       </div>
-
-      <div class="pmAuthBtns">
-        <button class="btn pmAuthPrimary" id="btnSignIn" type="button">Sign in</button>
-        <button class="btn btn-secondary pmAuthSecondary" id="btnCreate" type="button">Create account</button>
-      </div>
-
-      <div class="pmLinks">
-        <button class="pmLink" type="button"><span class="pmLeft">⚙️</span><span>Settings</span><span class="pmRight">›</span></button>
-        <button class="pmLink" type="button"><span class="pmLeft">❓</span><span>Help &amp; Support</span><span class="pmRight">›</span></button>
-      </div>
-    </div>
-
-    <!-- Signed IN view -->
-    <div class="pmSignedIn" id="pmSignedIn" style="display:none;">
-      <div class="pmHeader">
-        <div class="pmHello" id="pmHello">Hi, User</div>
-        <div class="pmMeta" id="pmMeta">Last login: —</div>
-      </div>
-
-      <div class="pmActions">
-        <button class="pmCircle" type="button"><span class="pmIcon">👥</span><span class="pmLabel">New account</span></button>
-        <button class="pmCircle" type="button"><span class="pmIcon">👤</span><span class="pmLabel">Profile</span></button>
-        <button class="pmCircle" type="button"><span class="pmIcon">⚙️</span><span class="pmLabel">Settings</span></button>
-      </div>
-
-      <div class="pmLinks">
-        <button class="pmLink" type="button"><span class="pmLeft">🎁</span><span>Refer a friend</span><span class="pmRight">›</span></button>
-        <button class="pmLink" type="button"><span class="pmLeft">❓</span><span>Help &amp; Support</span><span class="pmRight">›</span></button>
-      </div>
-
-      <button class="pmLogout" id="pmLogout" type="button">Log out</button>
-    </div>
-  </div>
-</div>
     </div>
   </nav>
 
@@ -75,7 +85,7 @@
     </header>
 
     <section class="invest-grid">
-      
+
       <!-- Portfolio -->
       <section class="card panel">
         <div class="panel-head">
@@ -92,17 +102,31 @@
         <div class="miniBars">
           <div class="barRow">
             <span class="muted small">Cost</span>
-            <div class="barTrack"><div class="barFill" id="costBar"></div></div>
+            <div class="barTrack">
+              <div class="barFill" id="costBar"></div>
+            </div>
           </div>
           <div class="barRow">
             <span class="muted small">Market</span>
-            <div class="barTrack"><div class="barFill" id="marketBar"></div></div>
+            <div class="barTrack">
+              <div class="barFill" id="marketBar"></div>
+            </div>
           </div>
         </div>
 
         <div class="tableWrap">
           <table class="table">
-            <thead><tr><th>Ticker</th><th>Buy</th><th>Now</th><th>Shares</th><th>Value</th><th>P/L %</th><th style="text-align: right;">Remove</th></tr></thead>
+            <thead>
+              <tr>
+                <th>Ticker</th>
+                <th>Buy</th>
+                <th>Now</th>
+                <th>Shares</th>
+                <th>Value</th>
+                <th>P/L %</th>
+                <th style="text-align: right;">Remove</th>
+              </tr>
+            </thead>
             <tbody id="portfolioBody"></tbody>
           </table>
         </div>
@@ -116,10 +140,16 @@
           <span class="muted small" id="watchCount">0</span>
           <button class="iconBtn" id="openWatchModalBtn" type="button" aria-label="Add Ticker">+</button>
         </div>
-        
+
         <div class="tableWrap">
           <table class="table">
-            <thead><tr><th>Ticker</th><th>Price</th><th style="text-align: right;">Remove</th></tr></thead>
+            <thead>
+              <tr>
+                <th>Ticker</th>
+                <th>Price</th>
+                <th style="text-align: right;">Remove</th>
+              </tr>
+            </thead>
             <tbody id="watchlistBody"></tbody>
           </table>
         </div>
@@ -128,22 +158,22 @@
       <!-- 3) CHART -->
       <section class="card panel">
         <div class="panel-head">
-            <h2>Portfolio Chart (Placeholder)</h2>
-            <span class="muted small">A1: Visual placeholder</span>
+          <h2>Portfolio Chart (Placeholder)</h2>
+          <span class="muted small">A1: Visual placeholder</span>
         </div>
         <div class="chartBox" aria-label="Placeholder chart">
-            <div class="chartGrid"></div>
-            <div class="chartLine"></div>
-            <div class="chartBars">
+          <div class="chartGrid"></div>
+          <div class="chartLine"></div>
+          <div class="chartBars">
             <div class="chartBar" style="height: 45%"></div>
             <div class="chartBar" style="height: 60%"></div>
             <div class="chartBar" style="height: 30%"></div>
             <div class="chartBar" style="height: 75%"></div>
             <div class="chartBar" style="height: 55%"></div>
-            </div>
-            <div class="muted small chartCaption">
+          </div>
+          <div class="muted small chartCaption">
             Placeholder chart: replace with real cost vs market chart in A2/A3.
-            </div>
+          </div>
         </div>
       </section>
     </section>
@@ -186,4 +216,5 @@
   <script src="./js/profileMenu.js"></script>
 
 </body>
+
 </html>

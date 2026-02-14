@@ -1,86 +1,105 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Personal Finance Hub</title>
+  <title>FinMate</title>
   <link rel="stylesheet" href="./css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/finmate-logo-Photoroom.png">
+
+
 </head>
+
 <body>
   <nav class="navbar">
-  <div class="nav-left">
-    <div class="logo">Finmate</div>
-  </div>
-
-  <div class="nav-right">
-    <div class="nav-links">
-      <a href="home.html" class="active">Home</a>
-      <a href="subscriptions.html">Subscriptions</a>
-      <a href="expense.html">Expenses</a>
-      <a href="investments.html">Investments</a>
-    </div>
-
-    <div class="profileWrap">
-  <button class="user-avatar" id="profileBtn" type="button" title="Account">👤</button>
-
-  <div class="profileMenu" id="profileMenu" aria-hidden="true">
-    <!-- Signed OUT view -->
-    <div class="pmSignedOut" id="pmSignedOut">
-      <div class="pmHeader">
-        <div class="pmHello">Welcome</div>
-        <div class="pmMeta">Sign in to access your dashboard.</div>
-      </div>
-
-      <div class="pmAuthBtns">
-        <button class="btn pmAuthPrimary" id="btnSignIn" type="button">Sign in</button>
-        <button class="btn btn-secondary pmAuthSecondary" id="btnCreate" type="button">Create account</button>
-      </div>
-
-      <div class="pmLinks">
-        <button class="pmLink" type="button"><span class="pmLeft">⚙️</span><span>Settings</span><span class="pmRight">›</span></button>
-        <button class="pmLink" type="button"><span class="pmLeft">❓</span><span>Help &amp; Support</span><span class="pmRight">›</span></button>
+    <div class="nav-left">
+      <div class="logo">
+        <img src="./assets/finmate-logo-Photoroom.png" alt="Finmate logo" class="logo-icon" />
+        <span>FinMate</span>
       </div>
     </div>
 
-    <!-- Signed IN view -->
-    <div class="pmSignedIn" id="pmSignedIn" style="display:none;">
-      <div class="pmHeader">
-        <div class="pmHello" id="pmHello">Hi, User</div>
-        <div class="pmMeta" id="pmMeta">Last login: —</div>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="home.html" class="active">Home</a>
+        <a href="expense.html">Expenses</a>
+        <a href="invest.html">Investments</a>
       </div>
+      <div class="profileWrap">
+        <button class="user-avatar" id="profileBtn" type="button" title="Account">👤</button>
 
-      <div class="pmActions">
-        <button class="pmCircle" type="button"><span class="pmIcon">👥</span><span class="pmLabel">New account</span></button>
-        <button class="pmCircle" type="button"><span class="pmIcon">👤</span><span class="pmLabel">Profile</span></button>
-        <button class="pmCircle" type="button"><span class="pmIcon">⚙️</span><span class="pmLabel">Settings</span></button>
+        <div class="profileMenu" id="profileMenu" aria-hidden="true">
+          <!-- Signed OUT view -->
+          <div class="pmSignedOut" id="pmSignedOut">
+            <div class="pmHeader">
+              <div class="pmHello">Welcome</div>
+              <div class="pmMeta">Sign in to access your dashboard.</div>
+            </div>
+
+            <div class="pmAuthBtns">
+              <button class="btn pmAuthPrimary" id="btnSignIn" type="button">Sign in</button>
+              <button class="btn btn-secondary pmAuthSecondary" id="btnCreate" type="button">Create account</button>
+            </div>
+
+            <div class="pmLinks">
+              <button class="pmLink" type="button"><span class="pmLeft">⚙️</span><span>Settings</span><span
+                  class="pmRight">›</span></button>
+              <button class="pmLink" type="button"><span class="pmLeft">❓</span><span>Help &amp; Support</span><span
+                  class="pmRight">›</span></button>
+            </div>
+          </div>
+
+          <!-- Signed IN view -->
+          <div class="pmSignedIn" id="pmSignedIn" style="display:none;">
+            <div class="pmHeader">
+              <div class="pmHello" id="pmHello">Hi, User</div>
+              <div class="pmMeta" id="pmMeta">Last login: —</div>
+            </div>
+
+            <div class="pmActions">
+              <button class="pmCircle" type="button"><span class="pmIcon">👥</span><span class="pmLabel">New
+                  account</span></button>
+              <button class="pmCircle" type="button"><span class="pmIcon">👤</span><span
+                  class="pmLabel">Profile</span></button>
+              <button class="pmCircle" type="button"><span class="pmIcon">⚙️</span><span
+                  class="pmLabel">Settings</span></button>
+            </div>
+
+            <div class="pmLinks">
+              <button class="pmLink" type="button"><span class="pmLeft">🎁</span><span>Refer a friend</span><span
+                  class="pmRight">›</span></button>
+              <button class="pmLink" type="button"><span class="pmLeft">❓</span><span>Help &amp; Support</span><span
+                  class="pmRight">›</span></button>
+            </div>
+
+            <button class="pmLogout" id="pmLogout" type="button">Log out</button>
+          </div>
+        </div>
       </div>
-
-      <div class="pmLinks">
-        <button class="pmLink" type="button"><span class="pmLeft">🎁</span><span>Refer a friend</span><span class="pmRight">›</span></button>
-        <button class="pmLink" type="button"><span class="pmLeft">❓</span><span>Help &amp; Support</span><span class="pmRight">›</span></button>
-      </div>
-
-      <button class="pmLogout" id="pmLogout" type="button">Log out</button>
     </div>
-  </div>
-</div>
-  </div>
-</nav>
+  </nav>
+
+
+
 
   <main class="container">
     <header class="hero">
       <div>
-        <h1>Welcome back 👋</h1>
+        <h1 id="welcomeTitle">Hello User</h1>
         <p class="muted">Here’s your overview report for the selected period.</p>
       </div>
 
       <div class="controls">
-        <select class="select">
-          <option>Last 30 Days</option>
-          <option>Last 7 Days</option>
-          <option>This Month</option>
+        <select class="select" id="rangeSelect">
+          <option value="30">Last 30 Days</option>
+          <option value="7">Last 7 Days</option>
+          <option value="month">This Month</option>
         </select>
-        <a class="btn" href="./expenses.html">+ Add Transaction</a>
+
+        <a class="btn" href="./expense.html">+ Add Transaction</a>
       </div>
     </header>
 
@@ -109,20 +128,77 @@
         <div class="hint muted">Shares × avg cost</div>
       </div>
     </section>
+    <div class="sectionTitle">
+      <span>Overview</span>
+      <span class="muted small">Last 30 days</span>
+    </div>
 
-    <section class="panel">
-      <div class="panelTitle">Quick Links</div>
-      <div class="quickLinks">
-        <a class="quick" href="./subscriptions.html">Manage Subscriptions</a>
-        <a class="quick" href="./expenses.html">View Expenses</a>
-        <a class="quick" href="./investments.html">Portfolio</a>
+    <!-- ✅ Analytics row (3 equal cards) -->
+    <section class="analytics">
+      <!-- 1) Category Breakdown -->
+      <div class="panelCard">
+        <h3>Category Breakdown</h3>
+        <div class="chartWrap">
+          <canvas id="categoryChart"></canvas>
+        </div>
+      </div>
+
+      <!-- 2) Spendings -->
+      <div class="panelCard">
+        <div class="panelHeader">
+          <h3>Top Spendings</h3>
+          <span class="muted small">This month</span>
+        </div>
+
+        <div class="spendList" id="spendList"></div>
+
+      </div>
+
+      <!-- 3) Income vs Expenses -->
+      <div class="panelCard">
+        <h3>Income vs Expenses</h3>
+        <div class="chartWrap">
+          <canvas id="trendChart"></canvas>
+        </div>
       </div>
     </section>
 
+
+    <section class="smartTipsSection">
+      <div class="smartTipsInner">
+
+        <div class="panelHeader">
+          <h3>Smart Tips</h3>
+          <span class="muted small" id="tipsStatus"></span>
+        </div>
+
+        <!-- Loading / Progress -->
+        <div class="tipsProgress">
+          <div class="tipsProgressTop">
+            <span class="muted small">Generating tips</span>
+            <span class="tipsPercent" id="tipsPercent">0%</span>
+          </div>
+
+          <div class="tipsBar">
+            <div class="tipsFill" id="tipsFill"></div>
+          </div>
+        </div>
+
+        <!-- Tips will appear here -->
+        <div class="tipsList" id="tipsList"></div>
+      </div>
+    </section>
+
+
+
+
     <div class="error muted" id="errorBox" style="display:none;"></div>
   </main>
-
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="./js/home.js"></script>
   <script src="./js/profileMenu.js"></script>
+
+
 </body>
+
 </html>

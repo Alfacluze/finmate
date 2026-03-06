@@ -8,7 +8,7 @@ const fmt = (n) =>
 
 let modalMode = "portfolio";
 let activeRange = "1M";
-
+let editingTicker = null;
 const chartSeries = {
   "1D": [],
   "1W": [],
@@ -105,8 +105,9 @@ function renderPortfolio() {
       <td>${p.shares}</td>
       <td>${fmt(value)}</td>
       <td style="color:${plColor}">${plPercent.toFixed(2)}%</td>
-      <td style="text-align:right;">
-        <button class="iconBtn" type="button" data-remove-port="${p.ticker}" aria-label="Remove">✕</button>
+      <td style="text-align:right; white-space:nowrap;">
+        <button class="iconBtn btn-sm editBtn" type="button" data-edit-port="${p.ticker}" aria-label="Update">Edit</button>
+        <button class="iconBtn btn-sm" type="button" data-remove-port="${p.ticker}" aria-label="Remove">✕</button>
       </td>
     `;
 
@@ -114,15 +115,22 @@ function renderPortfolio() {
   });
 
   body.onclick = (e) => {
-    const btn = e.target.closest("[data-remove-port]");
-    if (!btn) return;
+      const editBtn = e.target.closest("[data-edit-port]");
+      if (editBtn) {
+        const ticker = editBtn.getAttribute("data-edit-port");
+        openEditModal(ticker);
+        return;
+      }
 
-    const ticker = btn.getAttribute("data-remove-port");
-    portfolio = portfolio.filter((p) => p.ticker !== ticker);
+      const removeBtn = e.target.closest("[data-remove-port]");
+      if (removeBtn) {
+        const ticker = removeBtn.getAttribute("data-remove-port");
+        portfolio = portfolio.filter((p) => p.ticker !== ticker);
 
-    initializeChartHistory();
-    renderAll();
-  };
+        initializeChartHistory();
+        renderAll();
+      }
+    };
 }
 
 function renderSummary() {
@@ -459,6 +467,7 @@ function openModal(mode = "portfolio") {
   if (!overlay) return;
 
   modalMode = mode;
+  editingTicker = null;
   overlay.classList.add("open");
   overlay.setAttribute("aria-hidden", "false");
 
@@ -471,6 +480,7 @@ function openModal(mode = "portfolio") {
   if (mode === "watchlist") {
     $("modalTitle").textContent = "Add Watchlist Ticker";
     $("investmentFields").style.display = "none";
+    form.ticker.disabled = false;
     buy.required = false;
     sh.required = false;
     buy.disabled = true;
@@ -478,11 +488,42 @@ function openModal(mode = "portfolio") {
   } else {
     $("modalTitle").textContent = "Add Investment";
     $("investmentFields").style.display = "grid";
+    form.ticker.disabled = false;
     buy.disabled = false;
     sh.disabled = false;
     buy.required = true;
     sh.required = true;
   }
+}
+function openEditModal(ticker) {
+  if (!overlay) return;
+
+  const item = portfolio.find((p) => p.ticker === ticker);
+  if (!item) return showError("Investment not found.");
+
+  modalMode = "edit";
+  editingTicker = ticker;
+
+  overlay.classList.add("open");
+  overlay.setAttribute("aria-hidden", "false");
+
+  const form = $("addForm");
+  if (!form) return;
+
+  $("modalTitle").textContent = "Edit Investment";
+  $("investmentFields").style.display = "grid";
+
+  form.ticker.value = item.ticker;
+  form.ticker.disabled = true;
+
+  form.buyPrice.disabled = false;
+  form.shares.disabled = false;
+
+  form.buyPrice.required = true;
+  form.shares.required = true;
+
+  form.buyPrice.value = item.buyPrice;
+  form.shares.value = item.shares;
 }
 
 function closeModal() {
@@ -495,7 +536,12 @@ function closeModal() {
   if (!form) return;
 
   form.reset();
+  form.ticker.disabled = false;
+  form.buyPrice.disabled = false;
+  form.shares.disabled = false;
   form.shares.value = "1";
+
+  editingTicker = null;
 }
 
 if ($("openModalBtn")) $("openModalBtn").addEventListener("click", () => openModal("portfolio"));
@@ -515,7 +561,31 @@ if ($("addForm")) {
 
     const ticker = e.target.ticker.value.trim().toUpperCase();
     if (!ticker) return showError("Ticker is required.");
+    if (modalMode === "edit") {
+        const buyPrice = Number(e.target.buyPrice.value);
+        const shares = Number(e.target.shares.value);
 
+        if (!Number.isFinite(buyPrice) || buyPrice <= 0) {
+          return showError("Enter valid buy price.");
+        }
+
+        if (!Number.isFinite(shares) || shares <= 0) {
+          return showError("Enter valid shares.");
+        }
+
+        const item = portfolio.find((p) => p.ticker === editingTicker);
+        if (!item) {
+          return showError("Investment not found.");
+        }
+
+        item.buyPrice = +buyPrice.toFixed(2);
+        item.shares = +shares.toFixed(4);
+
+        initializeChartHistory();
+        closeModal();
+        renderAll();
+        return;
+      }
     if (modalMode === "watchlist") {
       if (watchlist.find((w) => w.ticker === ticker)) {
         return showError("Ticker already exists.");

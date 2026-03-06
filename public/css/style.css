@@ -4,7 +4,7 @@
   --panel2: #0f1728;
   --text: #eaf0ff;
   --muted: #a9b6d6;
-  --border: rgba(234, 240, 255, .10);
+  --border: rgba(234, 240, 255, 0.10);
   --accent: #27d17f;
 }
 
@@ -14,7 +14,7 @@
 
 body {
   margin: 0;
-  font-family: 'Inter',Arial, sans-serif;
+  font-family: "Inter", Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
 }
@@ -33,7 +33,7 @@ body {
 
   background: rgba(12, 18, 35, 0.95);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .nav-left {
@@ -58,9 +58,13 @@ body {
   text-decoration: none;
   color: #cbd5e1;
   font-size: 18px;
-  font-weight:600;
+  font-weight: 600;
 }
 
+.nav-links a:hover,
+.nav-links a.active {
+  color: white;
+}
 
 .user-avatar {
   width: 36px;
@@ -77,7 +81,6 @@ body {
   background: #334155;
 }
 
-/* Logo updated */
 .logo {
   display: flex;
   align-items: center;
@@ -92,21 +95,12 @@ body {
   object-fit: contain;
 }
 
-
-.nav-links a:hover,
-.nav-links a.active {
-  color: white;
-}
-
-
-
 /* ================= TOP BAR ================= */
-/* (Not used right now, but keeping it won't break anything) */
 
 .topbar {
   position: sticky;
   top: 0;
-  background: rgba(10, 14, 28, .75);
+  background: rgba(10, 14, 28, 0.75);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
   display: flex;
@@ -117,7 +111,7 @@ body {
 
 .brand {
   font-weight: 700;
-  letter-spacing: .3px;
+  letter-spacing: 0.3px;
 }
 
 .navlinks {
@@ -135,7 +129,7 @@ body {
 .navlinks a.active,
 .navlinks a:hover {
   color: var(--text);
-  background: rgba(234, 240, 255, .06);
+  background: rgba(234, 240, 255, 0.06);
   border: 1px solid var(--border);
 }
 
@@ -166,7 +160,7 @@ h1 {
 
 .small {
   font-size: 12px;
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .controls {
@@ -176,7 +170,7 @@ h1 {
 }
 
 .select {
-  background: rgba(234, 240, 255, .06);
+  background: rgba(234, 240, 255, 0.06);
   color: var(--text);
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -211,7 +205,7 @@ h1 {
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, .20);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .label {
@@ -235,7 +229,7 @@ h1 {
 
 .panel {
   margin-top: 16px;
-  background: rgba(18, 26, 43, .55);
+  background: rgba(18, 26, 43, 0.55);
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 16px;
@@ -260,7 +254,7 @@ h1 {
   text-decoration: none;
   color: var(--text);
   border: 1px solid var(--border);
-  background: rgba(234, 240, 255, .06);
+  background: rgba(234, 240, 255, 0.06);
   border-radius: 12px;
   padding: 10px 12px;
 }
@@ -271,7 +265,6 @@ h1 {
 
 /* ================= EXPENSE PAGE ================= */
 
-/* ONE grid2 only */
 .grid2 {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
@@ -279,11 +272,8 @@ h1 {
   margin-top: 16px;
 }
 
-/* Only the list panel scrolls when it gets long */
-
 .tableWrap {
   margin-top: 12px;
-  /* optional */
   max-height: 360px;
   overflow-y: auto;
   overflow-x: auto;
@@ -294,25 +284,22 @@ h1 {
 .budgetInput {
   width: 140px;
   padding: 10px 12px;
-
   border-radius: 12px;
-  border: 1px solid rgba(234, 240, 255, .14);
-  background: rgba(234, 240, 255, .06);
+  border: 1px solid rgba(234, 240, 255, 0.14);
+  background: rgba(234, 240, 255, 0.06);
   color: #eaf0ff;
-
   outline: none;
 }
 
 .budgetInput::placeholder {
-  color: rgba(169, 182, 214, .7);
+  color: rgba(169, 182, 214, 0.7);
 }
 
 .budgetInput:focus {
-  border-color: rgba(39, 209, 127, .6);
-  box-shadow: 0 0 0 3px rgba(39, 209, 127, .15);
+  border-color: rgba(39, 209, 127, 0.6);
+  box-shadow: 0 0 0 3px rgba(39, 209, 127, 0.15);
 }
 
-/* Remove spinner arrows (Chrome, Safari, Edge) */
 .budgetInput::-webkit-outer-spin-button,
 .budgetInput::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -326,7 +313,7 @@ h1 {
 
 .input {
   width: 100%;
-  background: rgba(234, 240, 255, .06);
+  background: rgba(234, 240, 255, 0.06);
   color: var(--text);
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -336,9 +323,8 @@ h1 {
 }
 
 .input::placeholder {
-  color: rgba(169, 182, 214, .7);
+  color: rgba(169, 182, 214, 0.7);
 }
-
 
 .table {
   width: 100%;
@@ -359,14 +345,18 @@ h1 {
   font-weight: 700;
 }
 
+.table tr:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
 .btn.btn-secondary {
-  background: rgba(234, 240, 255, .10);
+  background: rgba(234, 240, 255, 0.10);
   color: var(--text);
   border: 1px solid var(--border);
 }
 
 .btn.btn-secondary:hover {
-  background: rgba(234, 240, 255, .16);
+  background: rgba(234, 240, 255, 0.16);
 }
 
 /* ================= CHART ================= */
@@ -381,7 +371,7 @@ h1 {
   background: transparent;
 }
 
-/* ================= HOME DASHBOARD (added) ================= */
+/* ================= HOME DASHBOARD ================= */
 
 .sectionTitle {
   display: flex;
@@ -402,7 +392,7 @@ h1 {
   background: rgba(255, 255, 255, 0.045);
   border: 1px solid rgba(255, 255, 255, 0.07);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .panelCard:hover {
@@ -450,7 +440,7 @@ h1 {
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: transform .2s ease, background .2s ease;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .spendItem:hover {
@@ -482,7 +472,7 @@ h1 {
 
 .spendAmount {
   font-weight: 900;
-  letter-spacing: .2px;
+  letter-spacing: 0.2px;
 }
 
 .smartTipsSection {
@@ -521,7 +511,7 @@ h1 {
 
 .tipsPercent {
   font-weight: 900;
-  letter-spacing: .2px;
+  letter-spacing: 0.2px;
 }
 
 .tipsBar {
@@ -536,7 +526,7 @@ h1 {
   width: 0%;
   background: var(--accent);
   border-radius: 999px;
-  transition: width .18s ease;
+  transition: width 0.18s ease;
 }
 
 .tipsList {
@@ -555,7 +545,7 @@ h1 {
   border: 1px solid rgba(255, 255, 255, 0.05);
   opacity: 0;
   transform: translateY(8px);
-  transition: opacity .35s ease, transform .35s ease;
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
 .tipItem.show {
@@ -580,58 +570,16 @@ h1 {
   margin-bottom: 2px;
 }
 
-/* ================= RESPONSIVE ================= */
-
-@media (max-width: 980px) {
-  .cards {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .cards-3 {
-    grid-template-columns: 1fr;
-  }
-
-  .hero {
-    flex-direction: column;
-  }
-
-  .grid2 {
-    grid-template-columns: 1fr;
-  }
-
-  #categoryPie {
-    width: 100%;
-    height: auto;
-  }
-
-  .analytics {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 520px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-
-
-
-
-
+/* ================= PAGE-SPECIFIC EXPENSE STYLING ================= */
 
 .page-expenses .card {
   background: rgba(18, 26, 43, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: none;
-  /* remove dashboard glow */
 }
 
 .page-expenses .card:hover {
   transform: none;
-  /* disable lift animation */
 }
 
 .page-expenses .panel:first-child {
@@ -640,7 +588,6 @@ h1 {
 
 .page-expenses {
   background: #0e1424;
-  /* slightly lighter than home */
 }
 
 .page-expenses .btn {
@@ -653,10 +600,8 @@ h1 {
   background: #334155;
 }
 
+/* ================= PROFILE MENU ================= */
 
-/* ================= INVESTMENTS + PROFILE MENU (merged in) ================= */
-
-/* Profile dropdown */
 .profileWrap {
   position: relative;
   display: flex;
@@ -670,9 +615,9 @@ h1 {
   width: min(380px, 92vw);
   border-radius: 18px;
   padding: 14px;
-  background: rgba(10, 14, 28, .96);
+  background: rgba(10, 14, 28, 0.96);
   border: 1px solid var(--border);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, .45);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(12px);
   display: none;
   z-index: 999;
@@ -689,7 +634,7 @@ h1 {
 .pmHello {
   font-size: 28px;
   font-weight: 800;
-  letter-spacing: .2px;
+  letter-spacing: 0.2px;
 }
 
 .pmMeta {
@@ -719,8 +664,8 @@ h1 {
 
 .pmCircle {
   border: none;
-  background: rgba(39, 209, 127, .18);
-  border: 1px solid rgba(39, 209, 127, .22);
+  background: rgba(39, 209, 127, 0.18);
+  border: 1px solid rgba(39, 209, 127, 0.22);
   border-radius: 18px;
   padding: 14px 10px;
   cursor: pointer;
@@ -732,7 +677,7 @@ h1 {
 }
 
 .pmCircle:hover {
-  background: rgba(39, 209, 127, .26);
+  background: rgba(39, 209, 127, 0.26);
 }
 
 .pmIcon {
@@ -741,12 +686,12 @@ h1 {
 
 .pmLabel {
   font-size: 13px;
-  opacity: .95;
+  opacity: 0.95;
 }
 
 .pmLinks {
   margin-top: 12px;
-  border-top: 1px solid rgba(255, 255, 255, .08);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding-top: 10px;
 }
 
@@ -758,8 +703,8 @@ h1 {
   align-items: center;
   padding: 12px 10px;
   border-radius: 14px;
-  background: rgba(255, 255, 255, .04);
-  border: 1px solid rgba(255, 255, 255, .06);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   color: var(--text);
   cursor: pointer;
   margin-bottom: 10px;
@@ -767,7 +712,7 @@ h1 {
 }
 
 .pmLink:hover {
-  background: rgba(255, 255, 255, .08);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .pmRight {
@@ -780,17 +725,18 @@ h1 {
   cursor: pointer;
   padding: 12px 14px;
   border-radius: 14px;
-  background: rgba(255, 80, 80, .18);
-  border: 1px solid rgba(255, 80, 80, .22);
+  background: rgba(255, 80, 80, 0.18);
+  border: 1px solid rgba(255, 80, 80, 0.22);
   color: var(--text);
   font-weight: 700;
 }
 
 .pmLogout:hover {
-  background: rgba(255, 80, 80, .26);
+  background: rgba(255, 80, 80, 0.26);
 }
 
-/* Investment page layout */
+/* ================= INVESTMENT PAGE ================= */
+
 .invest-hero {
   display: flex;
   justify-content: space-between;
@@ -818,12 +764,12 @@ h1 {
   border-radius: 12px;
   cursor: pointer;
   border: 1px solid var(--border);
-  background: rgba(234, 240, 255, .06);
+  background: rgba(234, 240, 255, 0.06);
   color: var(--text);
 }
 
 .iconBtn:hover {
-  background: rgba(234, 240, 255, .12);
+  background: rgba(234, 240, 255, 0.12);
 }
 
 .summary {
@@ -853,7 +799,7 @@ h1 {
   height: 12px;
   border-radius: 999px;
   overflow: hidden;
-  background: rgba(234, 240, 255, .08);
+  background: rgba(234, 240, 255, 0.08);
   border: 1px solid var(--border);
 }
 
@@ -864,19 +810,15 @@ h1 {
   background: var(--accent);
 }
 
-/* Make tables nicer (works for invest + expenses) */
-.table tr:hover {
-  background: rgba(255, 255, 255, .04);
-}
-
 /* Modal used by invest.html */
+
 .modalOverlay {
   position: fixed;
   inset: 0;
   display: none;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, .45);
+  background: rgba(0, 0, 0, 0.45);
   padding: 18px;
   z-index: 50;
 }
@@ -889,7 +831,7 @@ h1 {
   width: min(520px, 96vw);
   border-radius: 18px;
   padding: 14px;
-  background: rgba(18, 26, 43, .82);
+  background: rgba(18, 26, 43, 0.82);
   border: 1px solid var(--border);
   backdrop-filter: blur(12px);
 }
@@ -914,71 +856,149 @@ h1 {
   margin-top: 12px;
 }
 
-/* Small button helper (optional) */
 .btn-sm {
   padding: 8px 10px;
   border-radius: 10px;
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
-/* Responsive support for invest.html */
+/* ================= LIVE INVESTMENT CHART ================= */
+
+.chartHead {
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.rangeTabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+
+.rangeTab {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: #d7deed;
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.rangeTab:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.rangeTab.active {
+  background: rgba(75, 145, 255, 0.18);
+  border-color: rgba(75, 145, 255, 0.45);
+  color: #ffffff;
+}
+
+.chartSurface {
+  position: relative;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 14px;
+}
+
+.portfolioChart {
+  width: 100%;
+  height: 320px;
+  display: block;
+}
+
+.chartPolyline {
+  fill: none;
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.chartPolylineCost {
+  stroke: #8b9bb4;
+}
+
+.chartPolylineMarket {
+  stroke: #38d39f;
+}
+
+.chartTooltip {
+  position: absolute;
+  display: none;
+  pointer-events: none;
+  transform: translate(-50%, -120%);
+  background: rgba(12, 18, 32, 0.96);
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.4;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  white-space: nowrap;
+  z-index: 5;
+}
+
+.chartYAxis {
+  font-size: 11px;
+  fill: #9ba9c3;
+}
+
+.chartStats {
+  margin-top: 10px;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.chartAxisLabels {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  color: #9ba9c3;
+  font-size: 0.78rem;
+  padding: 0 4px;
+}
+
+/* ================= RESPONSIVE ================= */
+
 @media (max-width: 980px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cards-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    flex-direction: column;
+  }
+
+  .grid2 {
+    grid-template-columns: 1fr;
+  }
+
+  #categoryPie {
+    width: 100%;
+    height: auto;
+  }
+
+  .analytics {
+    grid-template-columns: 1fr;
+  }
+
   .row2 {
     grid-template-columns: 1fr;
   }
 }
 
-/* ===== Investment placeholder chart (force visible) ===== */
-.chartBox {
-  position: relative;
-  height: 220px;
-  /* without this it can look invisible */
-  padding: 14px;
-  border-radius: 16px;
-  border: 1px solid rgba(234, 240, 255, .10);
-  background: rgba(234, 240, 255, .04);
-  overflow: hidden;
-}
-
-.chartGrid {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(to bottom, rgba(255, 255, 255, .06) 1px, transparent 1px) 0 0 / 100% 40px,
-    linear-gradient(to right, rgba(255, 255, 255, .05) 1px, transparent 1px) 0 0 / 60px 100%;
-  opacity: .55;
-}
-
-.chartLine {
-  position: absolute;
-  left: 14px;
-  right: 14px;
-  top: 40%;
-  height: 2px;
-  background: rgba(39, 209, 127, .55);
-}
-
-.chartBars {
-  position: absolute;
-  left: 14px;
-  right: 14px;
-  top: 28px;
-  bottom: 42px;
-  display: flex;
-  gap: 10px;
-  align-items: flex-end;
-}
-
-.chartBar {
-  flex: 1;
-  border-radius: 10px 10px 4px 4px;
-  background: rgba(39, 209, 127, .35);
-  border: 1px solid rgba(39, 209, 127, .25);
-}
-
-.chartCaption {
-  position: absolute;
-  left: 14px;
-  right: 14px;
-  bottom: 12px;
+@media (max-width: 520px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
 }

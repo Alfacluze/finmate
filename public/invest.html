@@ -20,7 +20,7 @@
       <div class="nav-links">
         <a href="./home.html">Home</a>
         <a href="./expense.html">Expenses</a>
-        <a href="./invest.html " class="active">Investments</a>
+        <a href="./invest.html" class="active">Investments</a>
       </div>
       <!-- <button class="btn btn-secondary btn-sm" id="refreshBtn" type="button" style="margin-left: 10px;">↻ Refresh</button> -->
       <div class="profileWrap">
@@ -157,24 +157,41 @@
 
       <!-- 3) CHART -->
       <section class="card panel">
-        <div class="panel-head">
-          <h2>Portfolio Chart (Placeholder)</h2>
-          <span class="muted small">A1: Visual placeholder</span>
-        </div>
-        <div class="chartBox" aria-label="Placeholder chart">
-          <div class="chartGrid"></div>
-          <div class="chartLine"></div>
-          <div class="chartBars">
-            <div class="chartBar" style="height: 45%"></div>
-            <div class="chartBar" style="height: 60%"></div>
-            <div class="chartBar" style="height: 30%"></div>
-            <div class="chartBar" style="height: 75%"></div>
-            <div class="chartBar" style="height: 55%"></div>
+
+        <div class="panel-head chartHead">
+          <div>
+            <h2>Portfolio Performance</h2>
+            <span class="muted small">Cost Basis vs Current Value</span>
           </div>
-          <div class="muted small chartCaption">
-            Placeholder chart: replace with real cost vs market chart in A2/A3.
+          <div class="rangeTabs" id="chartRangeTabs">
+            <button class="rangeTab active" data-range="1D">1 Day</button>
+            <button class="rangeTab" data-range="1W">1 Week</button>
+            <button class="rangeTab" data-range="1M">1 Month</button>
+            <button class="rangeTab" data-range="1Y">1 Year</button>
           </div>
+
         </div>
+
+        <div class="chartSurface">
+
+          <svg id="portfolioChart" class="portfolioChart" viewBox="0 0 900 320">
+
+          <g id="chartGridLines"></g>
+
+          <polyline id="costPolyline" class="chartPolyline chartPolylineCost"></polyline>
+          <polyline id="marketPolyline" class="chartPolyline chartPolylineMarket"></polyline>
+          </svg>
+        <!-- NEW TOOLTIP -->
+          <div id="chartTooltip" class="chartTooltip"></div>
+        </div>
+        <div class="chartAxisLabels" id="chartAxisLabels"></div>
+
+        <div class="chartStats">
+          <div><span class="muted small">Range Start</span> <strong id="rangeStartValue">$0</strong></div>
+          <div><span class="muted small">Range End</span> <strong id="rangeEndValue">$0</strong></div>
+          <div><span class="muted small">Change</span> <strong id="rangeChangeValue">$0</strong></div>
+        </div>
+
       </section>
     </section>
   </main>

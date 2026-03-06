@@ -468,6 +468,10 @@ function openModal(mode = "portfolio") {
 
   modalMode = mode;
   editingTicker = null;
+
+  const submitBtn = $("submitInvestmentBtn");
+  if (submitBtn) submitBtn.textContent = "Add";
+
   overlay.classList.add("open");
   overlay.setAttribute("aria-hidden", "false");
 
@@ -511,6 +515,8 @@ function openEditModal(ticker) {
   if (!form) return;
 
   $("modalTitle").textContent = "Edit Investment";
+  const submitBtn = $("submitInvestmentBtn");
+  if (submitBtn) submitBtn.textContent = "Update";
   $("investmentFields").style.display = "grid";
 
   form.ticker.value = item.ticker;
@@ -540,6 +546,8 @@ function closeModal() {
   form.buyPrice.disabled = false;
   form.shares.disabled = false;
   form.shares.value = "1";
+  const submitBtn = $("submitInvestmentBtn");
+  if (submitBtn) submitBtn.textContent = "Add";
 
   editingTicker = null;
 }
